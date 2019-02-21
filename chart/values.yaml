@@ -1,0 +1,39 @@
+# Default values for sams-club-front.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+react:
+  replicaCount: 3
+  image:
+    repository: samsdevacr.azurecr.io/sams-web
+    tag: latest
+    pullPolicy: IfNotPresent
+  istio:
+    egressRange: 0.0.0.0/0 # Allow all Egress traffic https://github.com/istio/istio/issues/9304
+
+vivaldi:
+  replicaCount: 3
+  image:
+    repository: samsdevacr.azurecr.io/vivaldi-app-insights
+    tag: latest
+    pullPolicy: IfNotPresent
+  istio:
+    egressRange: 0.0.0.0/0 # Allow all Egress traffic https://github.com/istio/istio/issues/9304
+
+opus:
+  backend:
+    replicaCount: 3
+    image:
+      repository: samsdevacr.azurecr.io/opus-server
+      tag: latest
+      pullPolicy: IfNotPresent
+    istio:
+      egressRange: 0.0.0.0/0 # Allow all Egress traffic https://github.com/istio/istio/issues/9304
+  client:
+    replicaCount: 3
+    image:
+      repository: samsdevacr.azurecr.io/opus.client
+      tag: latest
+      pullPolicy: IfNotPresent
+    istio:
+      egressRange: 0.0.0.0/0 # Allow all Egress traffic https://github.com/istio/istio/issues/9304

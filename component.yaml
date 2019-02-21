@@ -1,0 +1,13 @@
+name: fabrikate-sams-frontend
+generator: "helm"
+path: "./chart"
+subcomponents:
+  - name: frontend-namespace
+    generator: static
+    path: ./manifests/sams-club-front
+  - name: istio-hotfix
+    generator: static
+    path: ./manifests/istio
+  - name: "istio"
+    source: "https://github.com/evanlouie/fabrikate-istio"
+    method: "git"
